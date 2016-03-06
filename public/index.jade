@@ -1,0 +1,46 @@
+include ./parts/header.jade
+title Evan Pipta | Full-stack Web Developer
+meta( name="description", content="Full-stack web developer from Portsmouth NH" )
+meta( name="author", content="Evan Pipta" )
+include ./parts/assets.jade
+
+!= "</head>"
+
+body( class="tse-scrollable" )
+  div( class="tse-scroll-content" )
+    div( class="tse-content" )
+
+      div( class="intro" )
+        img( src="/assets/images/me.png" class="avatar" )
+        h1( class="title" ) Evan Pipta
+        p I'm a web developer with 5+ years of experience. I live in Portsmouth NH and I'm employed full-time at GlobalSign.
+        p I like to write clear and efficient code, think about how to improve both developer and user experiences, and understand the abstract principles behind how everything on the internet works.
+
+      div( class="skills" )
+        h3( class="title" ) Some things I know a lot about and have a passion for:
+        div( class="two-column-wrapper" )
+          div( class="purple-gradient block-left" )
+            div
+              span( class="big-bracket opening" ) {
+              h2( class="column-title" ) Frontend JS development
+              p.
+                As my strongest focus, a thorough interest in javascript and the browser environment enables me to easily adapt and work with any documented javascript framework or API.
+                <br><br>
+                Things I'm well-versed in right now include: vue.js, jquery, angular, three.js, require.js
+          div( class="green-gradient block-right" )
+            div
+              span( class="big-bracket closing" ) }
+              h2( class="column-title" ) Backend JS development
+              p.
+                Similarly to frontend JS development, I'm capable of intuitively working with and understanding the node/npm environment.
+                <br><br>
+                I'm always trying to improve my pipeline, but I gladly welcome express, browserify, gulp, and many other packages I find useful.
+
+      div( class="cta-bar" )
+        img( src="/assets/images/github-grey.png" )
+        a( class="light-link" href="https://github.com/747823/" ) My github account has JS code samples.
+
+
+  include ./parts/footer-assets.jade
+
+!= "</html>"
