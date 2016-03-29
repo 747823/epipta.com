@@ -1,7 +1,7 @@
 "use strict";
 
 
-var HTTP_PORT = ( process.env.PORT ) ? process.env.PORT : 3000;
+var HTTP_PORT = process.env.PORT || 80;
 var Express = require( "express" );
 var Jade = require( "jade" );
 var Sass = require( "node-sass" );

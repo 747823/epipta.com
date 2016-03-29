@@ -10,35 +10,73 @@ body( class="tse-scrollable" )
   div( class="tse-scroll-content" )
     div( class="tse-content" )
 
-      div( class="intro" )
+      div( class="intro" id="intro" )
         img( src="/assets/images/me.png" class="avatar" )
         h1( class="title" ) Evan Pipta
-        p I'm a web developer with 5+ years of experience. I live in Portsmouth NH and I'm employed full-time at GlobalSign.
+        p I'm a full stack web dev with 5+ years of experience. I live in Portsmouth NH and I'm employed full-time at GlobalSign.
         p I like to write clear and efficient code, think about how to improve both developer and user experiences, and understand the abstract principles behind how everything on the internet works.
+        p( class="top-links" )
+          a( href="#projects" ) Projects
+          a( href="/evan-pipta-resume.pdf" ) Resume
+          a( href="mailto:3pipta@gmail.com" ) Contact me
 
-      div( class="skills" )
-        h3( class="title" ) Some things I know a lot about and have a passion for:
+
+      div( class="projects" id="projects" )
+        h3( class="title" ) Projects I'm involved with:
         div( class="two-column-wrapper" )
-          div( class="purple-gradient block-left" )
+          div( class="block-left" )
             div
               span( class="big-bracket opening" ) {
-              h2( class="column-title" ) Frontend JS development
+              h2( class="column-title" ) <a href="https://www.globalsign.com/en/">Globalsign.com</a>
               p.
-                As my strongest focus, a thorough interest in javascript and the browser environment enables me to easily adapt and work with any documented javascript framework or API.
-                <br><br>
-                Things I'm well-versed in right now include: vue.js, jquery, angular, three.js, require.js
-          div( class="green-gradient block-right" )
+                A whole lot goes into making sure our main site at Globalsign is always working effectively. I play a lot of roles in this process in my full-time position at Globalsign. Some of them include:
+              ul
+                li Building out new page designs with css/html/js
+                li Writing mvc-based cms plugins / in-house tools in php and javascript
+                li Planning and/or re-thinking the overall architecture of our sites
+                li Coming up with creative ways to optimize the complex process of development and deployment, and putting them into action
+                li Configuring installations of apache, git, mysql, etc. on linux
+                li Curating best practices for seo, user experience, javascript code, etc.
+                li Conducting a/b testing to make design decisions that matter
+          div( class="block-right" )
             div
               span( class="big-bracket closing" ) }
-              h2( class="column-title" ) Backend JS development
+              h2( class="column-title" ) <a href="http://logophile.online/">Logophile</a>
               p.
-                Similarly to frontend JS development, I'm capable of intuitively working with and understanding the node/npm environment.
-                <br><br>
-                I'm always trying to improve my pipeline, but I gladly welcome express, browserify, gulp, and many other packages I find useful.
+                Logophile is a multiplayer browser-based boggle clone made in Node.js! 
+              p.
+                The intention behind logophile is to be a place to quickly create boggle games with a variety of custom parameters and play them with friends. I also just wanted an excuse to build something interactive and fun in Node.
+
+      div( class="two-column-wrapper" )
+          div( class="block-left" )
+            div
+              span( class="big-bracket opening" ) {
+              h2( class="column-title" ) <a href="https://github.com/747823/bitlist">Bitlist</a>
+              p.
+                Bitlist is a "craigslist for bitcoins" made in Ruby on Rails. We really like Bitcoin, and we think blockchain technologies including cryptocurrencies are here to stay. 
+              p.
+                However, most people don't really use them for anything in every day life because we don't have anywhere to use them. It's hard to find people and places who know about them yet. So Bitlist aims to help make Bitcoin more useful and move it into the mainstream by quickly connecting people locally who want to buy and sell things for Bitcoin.
+          div( class="block-right" )
+            div
+              span( class="big-bracket closing" ) }
+              h2( class="column-title" ) <a href="https://github.com/747823/gspl">gspl</a>
+              p.
+                There are two parts to this: a spline class, and a renderer. The spline class is what's important here: it takes a arbitrary, indefinite set of points and lets evaluates a 3-dimensional spline from them using the gaussian function to take a weighted average. It's roughly a <a href="https://en.wikipedia.org/wiki/B-spline">b-spline</a>.
+
+      div( class="two-column-wrapper" )
+          div( class="block-left" )
+            div
+              span( class="big-bracket opening" ) {
+              h2( class="column-title" ) <a href="https://www.npmjs.com/package/object-clone">object-clone</a>
+              p.
+                Just a method that should have been in Javascript from the start, packaged for npm. When an object gets assigned from one variable to another in Javascript, both variables end up being references to the same underlying object in memory. This is often not the behavior we want, so I wrote an Object.clone module that recursively clones an object and all its children to "assign by value" instead of "assign by reference".
 
       div( class="cta-bar" )
-        img( src="/assets/images/github-grey.png" )
-        a( class="light-link" href="https://github.com/747823/" ) My github account has JS code samples.
+        //- img( src="/assets/images/github-grey.png" )
+        a( class="light-link" href="https://github.com/747823/" ) Github
+        a( class="light-link" href="/evan-pipta-resume.pdf" ) Resume
+        a( class="light-link" href="mailto:3pipta@gmail.com" ) Contact me
+        a( class="light-link" href="#intro" ) Back to top
 
 
   include ./parts/footer-assets.jade

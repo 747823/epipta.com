@@ -4,7 +4,8 @@
 
 // Colors
 $text-grey: #58605f
-$background-grey: #8ba09c
+$background-grey: #A9B9B7
+$background-light-grey: #F1F7F2
 $purp: #ad558d
 
 
@@ -79,22 +80,19 @@ a.light-link:hover
   -webkit-flex-flow: row wrap
   flex-flow: row wrap
   > div
-    width: 50%
+    width: 100%
     @media( max-width: 920px )
       width: 100%
   > div > div
-    max-width: 450px
+    max-width: 750px
     padding: 60px
-  .block-left > div
-    float: right
-    padding: 50px 50px 75px 20px
+  .block-left > div, .block-right > div
+    // float: right
+    margin: 0 auto
+    padding: 20px 50px 30px 20px
     @media( max-width: 495px )
       float: none
-      padding: 50px 40px 75px 30px
-  .block-right > div
-    padding: 50px 20px 75px 58px
-    @media( max-width: 495px )
-      padding: 50px 40px 75px 30px
+      padding: 20px 40px 30px 30px
 
 
 // grey cta bar
@@ -103,10 +101,12 @@ a.light-link:hover
   padding: 20px
   text-align: center
   color: #fff
+  margin: 50px 0 0 0
   a, p, img, div
     display: inline-block
     vertical-align: middle
     margin: 10px 10px
+    font-size: 20px
 
 
 
@@ -130,23 +130,37 @@ a.light-link:hover
     font-weight: 200
     letter-spacing: -1.5px
     margin: 0 auto 30px
+  a 
+    margin: 0 16px 0
 
 
-// Skills section
-.skills
+// Projects section
+.projects
   padding: 0
   h3.title
     color: $text-grey
     text-align: center
-    padding: 0 20px 20px
+    padding: 20px
+    margin: 0 0 40px 0
+    background: $background-light-grey
   h2.column-title
     margin-top: 0
+
+.intro, .projects, .two-column-wrapper
+  a
+    color: #000
+    text-decoration: none
+    border-bottom: 1px solid #ccc
+    &:hover
+      border-color: #999
+      background: $background-light-grey
+
 
 // Big decorative brackets
 .big-bracket
   position: absolute
   font-size: 160px
-  color: #000
+  color: #fff
   color: rgba(0, 0, 0, 0.1)
   top: 50%;
   transform: translateY(-50%);
