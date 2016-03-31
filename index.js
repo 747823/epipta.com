@@ -2,6 +2,9 @@
 
 
 var HTTP_PORT = process.env.PORT || 80;
+var HTTPS_PORT = 443;
+var http = require( "http" );
+var https = require( "https" );
 var Express = require( "express" );
 var Jade = require( "jade" );
 var Sass = require( "node-sass" );
@@ -9,16 +12,38 @@ var RenderSass = require( "express-render-sass" );
 var Package = require( "./package.json" );
 var Fs = require( "fs" );
 
+var ssl = {
+  cert: Fs.readFileSync("/etc/letsencrypt/live/evanpipta.com/fullchain.pem"),
+  key: Fs.readFileSync("/etc/letsencrypt/live/evanpipta.com/privkey.pem")
+//  ca: Fs.readFileSync("/etc/letsencrypt/live/evanpipta.com/chain.pem") 
+};
+
+
 
 ( function() {
 
 
   // Start server
   var app = Express();
-  var expressServer = app.listen( HTTP_PORT, function() {
+  var server = https.createServer(ssl, app);
+  var insecureServer = http.createServer(app);
+
+  /*var expressServer = app.listen( HTTP_PORT, function() {
     var host = expressServer.address().address;
     var port = expressServer.address().port;
     console.log( "Server listening at http://" + host + port );
+  } );*/
+
+
+  // Redirect http to https
+  app.use(function( req, res, next ) {
+    console.log( req.secure );
+    console.log( "https://" + req.get("host") + req.url );
+    if ( !req.secure ) {
+      res.redirect( 301, "https://" + req.get("host") + req.url );
+      return;
+    }
+    next();
   } );
 
 
@@ -92,6 +117,11 @@ var Fs = require( "fs" );
       pretty: "  "
     } ) );
   } );
+
+
+  // Start https server
+  server.listen(HTTPS_PORT);
+  insecureServer.listen(HTTP_PORT);
 
 
 } )();
