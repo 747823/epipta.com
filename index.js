@@ -1,6 +1,7 @@
 "use strict";
 
 
+var HOSTNAME = "evanpipta.com";
 var HTTP_PORT = process.env.PORT || 80;
 var HTTPS_PORT = 443;
 var http = require( "http" );
@@ -28,19 +29,11 @@ var ssl = {
   var server = https.createServer(ssl, app);
   var insecureServer = http.createServer(app);
 
-  /*var expressServer = app.listen( HTTP_PORT, function() {
-    var host = expressServer.address().address;
-    var port = expressServer.address().port;
-    console.log( "Server listening at http://" + host + port );
-  } );*/
 
-
-  // Redirect http to https
+  // Redirect http to https and also force a single hostname
   app.use(function( req, res, next ) {
-    console.log( req.secure );
-    console.log( "https://" + req.get("host") + req.url );
-    if ( !req.secure ) {
-      res.redirect( 301, "https://" + req.get("host") + req.url );
+    if ( !req.secure || req.get("host") !== HOSTNAME ) {
+      res.redirect( 301, "https://" + HOSTNAME + req.url );
       return;
     }
     next();
