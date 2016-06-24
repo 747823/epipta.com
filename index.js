@@ -13,12 +13,12 @@ var RenderSass = require( "express-render-sass" );
 var Package = require( "./package.json" );
 var Fs = require( "fs" );
 
-var ssl = {
-  cert: Fs.readFileSync("/etc/letsencrypt/live/evanpipta.com/fullchain.pem"),
-  key: Fs.readFileSync("/etc/letsencrypt/live/evanpipta.com/privkey.pem")
-//  ca: Fs.readFileSync("/etc/letsencrypt/live/evanpipta.com/chain.pem") 
-};
+var sslEnabled = true;
 
+var ssl = {
+  cert: sslEnabled ? Fs.readFileSync("/etc/letsencrypt/live/evanpipta.com/fullchain.pem") : 0,
+  key: sslEnabled ? Fs.readFileSync("/etc/letsencrypt/live/evanpipta.com/privkey.pem") : 0
+};
 
 
 ( function() {
@@ -31,13 +31,15 @@ var ssl = {
 
 
   // Redirect http to https and also force a single hostname
-  app.use(function( req, res, next ) {
-    if ( !req.secure || req.get("host") !== HOSTNAME ) {
-      res.redirect( 301, "https://" + HOSTNAME + req.url );
-      return;
-    }
-    next();
-  } );
+  if ( sslEnabled ) {
+    app.use(function( req, res, next ) {
+      if ( !req.secure || req.get("host") !== HOSTNAME ) {
+        res.redirect( 301, "https://" + HOSTNAME + req.url );
+        return;
+      }
+      next();
+    } );
+  }
 
 
   // SASS renderer
@@ -113,7 +115,7 @@ var ssl = {
 
 
   // Start https server
-  server.listen(HTTPS_PORT);
+  if ( sslEnabled ) server.listen(HTTPS_PORT);
   insecureServer.listen(HTTP_PORT);
 
 
