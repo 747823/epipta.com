@@ -11,102 +11,102 @@ $purp: #ad558d
 
 // Basic stuff
 * 
-  font-family: 'ProximaNova', Arial, sans-serif
-  box-sizing: border-box
-  position: relative
+	font-family: 'ProximaNova', Arial, sans-serif
+	box-sizing: border-box
+	position: relative
 body, div
-  margin: 0
-  padding: 0
+	margin: 0
+	padding: 0
 p 
-  font-size: 19px
+	font-size: 19px
 h2 
-  font-size: 31px
-  font-weight: 400
+	font-size: 31px
+	font-weight: 400
 h3 
-  font-size: 25px
-  font-weight: 400
+	font-size: 25px
+	font-weight: 400
 a
-  transition: color 0.2s, background 0.2s, opacity 0.2s, border 0.2s
+	transition: color 0.2s, background 0.2s, opacity 0.2s, border 0.2s
 h1:first-child, h2:first-child, h3:first-child, p:first-child, div:first-child
-  margin-top: 0
+	margin-top: 0
 h1:last-child, h2:last-child, h3:last-child, p:last-child, div:last-child
-  margin-bottom: 0
+	margin-bottom: 0
 html, body, .tse-scroll-content 
-  height: 100%
+	height: 100%
 img
-  -moz-user-select: none
-  user-select: none
+	-moz-user-select: none
+	user-select: none
 ::selection
-  background: $purp
-  color: #fff
+	background: $purp
+	color: #fff
 ::-moz-selection
-  background: $purp
-  color: #fff
+	background: $purp
+	color: #fff
 
 
 // Modular/reuseable styles
 
 // Background gradient blocks
 .purple-gradient
-  background: #7f4085
-  background: linear-gradient(35deg, #ad558d 0%, #582e7e 100%)
-  color: #fff
-  p, div, h1, h2, h3
-    color: #fff
+	background: #7f4085
+	background: linear-gradient(35deg, #ad558d 0%, #582e7e 100%)
+	color: #fff
+	p, div, h1, h2, h3
+		color: #fff
 .green-gradient
-  background: #5daa57
-  background: linear-gradient(35deg, #278857 0%, #98ce56 100%)
-  color: #fff
-  p, div, h1, h2, h3
-    color: #fff
+	background: #5daa57
+	background: linear-gradient(35deg, #278857 0%, #98ce56 100%)
+	color: #fff
+	p, div, h1, h2, h3
+		color: #fff
 
 // Light links
 a.light-link
-  color: #fff
-  text-decoration: none
-  border-bottom: 1px solid rgba(255,255,255,0.4)
+	color: #fff
+	text-decoration: none
+	border-bottom: 1px solid rgba(255,255,255,0.4)
 a.light-link:hover
-  border-bottom: 1px solid rgba(255,255,255,0.8)
-  background: rgba(255,255,255,0.1)
+	border-bottom: 1px solid rgba(255,255,255,0.8)
+	background: rgba(255,255,255,0.1)
 
 // Two column blocks with text, formatted like so
 // div.two-column-wrapper
 //   div (this is a column)
 //     div (this is the content holder for the column. add .block-left to the left column)
 .two-column-wrapper
-  display: inline-block
-  display: -webkit-flex
-  display: flex
-  -webkit-flex-flow: row wrap
-  flex-flow: row wrap
-  > div
-    width: 100%
-    @media( max-width: 920px )
-      width: 100%
-  > div > div
-    max-width: 750px
-    padding: 60px
-  .block-left > div, .block-right > div
-    // float: right
-    margin: 0 auto
-    padding: 20px 50px 30px 20px
-    @media( max-width: 495px )
-      float: none
-      padding: 20px 40px 30px 30px
+	display: inline-block
+	display: -webkit-flex
+	display: flex
+	-webkit-flex-flow: row wrap
+	flex-flow: row wrap
+	> div
+		width: 100%
+		@media( max-width: 920px )
+			width: 100%
+	> div > div
+		max-width: 750px
+		padding: 60px
+	.block-left > div, .block-right > div
+		// float: right
+		margin: 0 auto
+		padding: 20px 50px 30px 20px
+		@media( max-width: 495px )
+			float: none
+			padding: 20px 40px 30px 30px
 
 
 // grey cta bar
 .cta-bar
-  background: $background-grey
-  padding: 20px
-  text-align: center
-  color: #fff
-  margin: 60px 0 0 0
-  a, p, img, div
-    display: inline-block
-    vertical-align: middle
-    margin: 10px 10px
-    font-size: 20px
+	background: $background-grey
+	padding: 20px
+	text-align: center
+	color: #fff
+	margin: 60px 0 0 0
+	a, p, img, div
+		display: inline-block
+		vertical-align: middle
+		margin: 10px 10px
+		font-size: 20px
 
 
 
@@ -114,57 +114,74 @@ a.light-link:hover
 
 // Intro section
 .intro
-  text-align: center
-  color: $text-grey
-  padding: 100px 30px
-  padding: 13vh 30px
-  img.avatar 
-    display: block
-    margin: 0 auto 30px
-  p
-    max-width: 540px
-    margin: 20px auto 0
-    letter-spacing: -0.2px
-  h1.title
-    font-size: 48px
-    font-weight: 200
-    letter-spacing: -1.5px
-    margin: 0 auto 30px
-  a 
-    margin: 0 16px 0
+	text-align: center
+	background: linear-gradient( 0deg, #20222F 0%, #101115 100% );
+	color: $text-grey
+	padding: 150px 30px
+	padding: 20vh 30px
+	canvas 
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	* 
+		color: rgba(255,255,255,0.9)
+	img.avatar 
+		display: block
+		margin: 0 auto 30px
+		max-width: 192px
+	p
+		max-width: 540px
+		margin: 20px auto 0
+		letter-spacing: -0.2px
+		font-size: 21px
+	h1.title
+		font-size: 48px
+		font-weight: 200
+		letter-spacing: -1.5px
+		margin: 0 auto 30px
+	a 
+		margin: 0 16px 0
+		color: rgba(255,255,255,0.9) !important
+		border-bottom: 1px solid rgba(255,255,255,0.5) !important
+		background: transparent
+		&:hover
+			background: rgba(255,255,255,0.1) !important
+			border-bottom: 1px solid rgba(255,255,255,0.75) !important
 
 
 // Projects section
 .projects
-  padding: 0
-  h3.title
-    color: $text-grey
-    text-align: center
-    padding: 20px
-    margin: 0 0 40px 0
-    background: $background-light-grey
-  h2.column-title
-    margin-top: 0
+	padding: 0
+	h3.title
+		color: $text-grey
+		text-align: center
+		padding: 20px
+		margin: 0 0 40px 0
+		background: $background-light-grey
+	h2.column-title
+		margin-top: 0
 
 .intro, .projects, .two-column-wrapper
-  a
-    color: #000
-    text-decoration: none
-    border-bottom: 1px solid #ccc
-    &:hover
-      border-color: #999
-      background: $background-light-grey
+	a
+		color: #000
+		text-decoration: none
+		border-bottom: 1px solid #ccc
+		&:hover
+			border-color: #999
+			background: $background-light-grey
 
 
 // Big decorative brackets
 .big-bracket
-  position: absolute
-  font-size: 160px
-  color: #fff
-  color: rgba(0, 0, 0, 0.1)
-  top: 50%;
-  transform: translateY(-50%);
+	position: absolute
+	font-size: 160px
+	color: #fff
+	color: rgba(0, 0, 0, 0.1)
+	top: 50%;
+	transform: translateY(-50%);
 .big-bracket.closing
-  right: -55px
+	right: -55px
 .big-bracket.opening
-  left: -60px
+	left: -60px
